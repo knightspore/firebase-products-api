@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/pattern.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet"> 
+    <title>Seed API</title>
+    <style>
+        body { font-family: 'Alef', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen text-gray-200 pb-24 overflow-hidden bg-purple-900">
+    <!-- <video class="z-0 absolute top-0 min-h-screen w-full" autoplay="true" src="./bg.mp4"></video> -->
+    <div class="z-20">
+        <div class="max-w-6xl mx-auto px-5 py-24">
+            <h1 class="z-30 title-font xl:w-2/4 lg:w-3/4 mx-auto mb-4 text-4xl font-extrabold leading-10 tracking-tight sm:text-5xl sm:leading-none md:text-6xl">Products API</h1>
+            <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">Visit <code>/api</code> to acces a list of products that have been parsed from many websites.</p>
+        </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-2 transform -translate-x-4">
+            <div class="p-8 flex flex-col lg:col-start-2">
+                <div class="pattern-dots-md gray-light">
+                <div class="rounded bg-gray-800 p-4 transform translate-x-6 -translate-y-6  "  >
+                    <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-5 flex-shrink-0 p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>                </div>
+                    <div class="flex-grow ">
+                    <h2 class=" text-xl title-font font-medium mb-3">Add Site to Parse (RSS)</h2>
+                    <p class="mb-3 leading-relaxed text-sm text-justify">
+                        Add a website to parse with <code>/feed/</code> at the end of the URL. The page must have a valid RSS feed and it will usually be the products page or a category page.
+                    </p>
+                    <input disabled type="text" class="text-sm px-2 py-1 input w-full rounded-md text-purple-200 bg-gray-700 shadow-inner" placeholder="Coming soon...">
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="p-8 flex flex-col lg:col-start-3 ">
+                <div class="pattern-dots-md gray-light">
+                <div class="rounded bg-gray-800 p-4 transform translate-x-6 -translate-y-6 ">
+                    <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-5 flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                    </div>
+                    <div class="flex-grow">
+                    <h2 class=" text-xl title-font font-medium mb-3">API Routes</h2>
+                    <p class="leading-relaxed text-sm text-justify">
+                        <ul class="text-sm">
+                            <li>Base (Products): <code>/api/</code></li>
+                            <li>Refresh DB: <code>/api/refresh</code></li>
+                        </ul>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+</div>
+</body>
+</html>
