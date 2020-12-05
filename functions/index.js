@@ -6,7 +6,7 @@ app.use(cors())
 const scripts = require('./scripts.js')
 var path = require('path');
 
-var onTheseRSSFeeds = [
+var fromTheseRssFeeds = [
     'https://marijuanasa.co.za/product-category/marijuana-seeds/feed/',
     'https://www.cannabist.co.za/cannabis-seeds/feed/',
     'https://www.biltongandbudz.co.za/shop/feed/',
@@ -30,7 +30,7 @@ app.get('/api', async (request, response) => {
 // Request Crawl Refresh
 app.get('/api/refresh', (request, response) => {
     response.set('Cache-control', 'public, max-age=300, s-maxage=600')
-    scripts.scrapeToDatabase(onTheseRSSFeeds)
+    scripts.scrapeToDatabase(fromTheseRssFeeds)
     response.sendStatus(200)    
 })
 

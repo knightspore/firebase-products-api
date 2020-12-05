@@ -10,7 +10,7 @@ db.settings({ ignoreUndefinedProperties: true })
 exports.getCollection = async (collection) => {
     let items = []
     
-    let productsRef = db.collection(`${collection}`);
+    let productsRef = db.collection(`${collection}`).orderBy("id", "asc");
     let snapshot = await productsRef.get();
     for(const doc of snapshot.docs) {   
           items.push(doc.data());

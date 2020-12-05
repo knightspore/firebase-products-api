@@ -4,12 +4,17 @@ const database = require('./database.js')
 // Clean Scrape Results to Create a Simple Product List
 createProductListFrom = (resultsJson) => {
     var ref = []
+    var productCount = "0"
+
     for (let count = 0; count < resultsJson.length; count++) {
         for (let i = 0; i < resultsJson[count]['items'].length; i++) {
             var currentItem = resultsJson[count]['items'][i]
+            currentItem.id = productCount;
             ref.push(currentItem)
+            productCount++
         }
     }
+    
     return ref
 }
 
