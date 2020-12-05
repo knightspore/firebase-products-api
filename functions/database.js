@@ -7,11 +7,24 @@ admin.initializeApp({
 const db = admin.firestore()
 db.settings({ ignoreUndefinedProperties: true })
 
+exports.getDocument = async (collection, id) => {
+    const documentRef = db.collection(collection).doc(id);
+    const document = await documentRef.get();
+
+    if (!document.exists) {
+        console.log('No such document!');
+      } else {
+        console.log('Document data:', document.data());
+      }
+
+    return document.data();
+}
+
 exports.getCollection = async (collection) => {
     let items = []
     
-    let productsRef = db.collection(`${collection}`).orderBy("id", "asc");
-    let snapshot = await productsRef.get();
+    let collectionRef = db.collection(`${collection}`).orderBy("id", "asc");
+    let snapshot = await collectionRef.get();
     for(const doc of snapshot.docs) {   
           items.push(doc.data());
     }

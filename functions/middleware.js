@@ -25,6 +25,25 @@ notify = (msg) => {
 
 // ******** EXPORTS ******* //
 
+// Get List of Items from Database
+exports.getListOf = async (collection) => {
+    return await database.getCollection(collection)
+}
+
+exports.getById = async (collection, id) => {
+    return await database.getDocument(collection, id)
+}
+
+// Parse RSS URLs into JSON
+exports.scrapeToDatabase = async function (urlList, collection) {
+    notify('\nRe-running Crawl...')
+    
+    var ref = await scraper.run(urlList)
+    notify('\nCrawl Complete. Updating database...')
+
+    database.setCollection(collection, createProductListFrom(ref))
+}
+
 // Request Logger
 exports.log = (request) => {
     var d = new Date();
@@ -38,16 +57,3 @@ exports.log = (request) => {
     })
 }
 
-// Parse RSS URLs into JSON
-exports.scrapeToDatabase = async function (urlList) {
-    notify('\nRe-running Crawl...')
-    
-    var ref = await scraper.run(urlList)
-    notify('\nCrawl Complete. Updating database...')
-
-    database.setCollection('products', createProductListFrom(ref))
-}
-
-exports.returnApiFor = async (collection) => {
-    return await database.getCollection(collection);
-}

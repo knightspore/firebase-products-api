@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 var cors = require('cors')
 app.use(cors())
-const scripts = require('./scripts.js')
+const middleware = require('./middleware.js')
 var path = require('path');
 
 var fromTheseRssFeeds = [
@@ -21,16 +21,27 @@ app.get('/', (request, response) => {
     response.status(200).sendFile(path.join(__dirname, '/dist/index.html'));
 })
 
-// Products API
+// Products List API
 app.get('/api', async (request, response) => {
     response.set('Cache-control', 'public, max-age=300, s-maxage=600')
-    response.json(await scripts.returnApiFor('products'))
+    response.json(await middleware.getListOf('products'))
 });
+
+app.get('/api/products', async (request, response) => {
+    response.set('Cache-control', 'public, max-age=300, s-maxage=600')
+    response.json(await middleware.getListOf('products'))
+});
+
+// Single Product API
+app.get('/api/products/:item_id', async (request, response) => {
+    response.set('Cache-control', 'public, max-age=300, s-maxage=600')
+    response.json(await middleware.getById('products', request.params.item_id))
+})
 
 // Request Crawl Refresh
 app.get('/api/refresh', (request, response) => {
     response.set('Cache-control', 'public, max-age=300, s-maxage=600')
-    scripts.scrapeToDatabase(fromTheseRssFeeds)
+    middleware.scrapeToDatabase(fromTheseRssFeeds, 'products')
     response.sendStatus(200)    
 })
 
