@@ -32,7 +32,7 @@ exports.setCollection = async (collection, data) => {
                 link: crawlProduct.link,
                 image: '#'
             }
-            const res = db.collection(collection).doc(crawlProduct.title).set(product); 
+            const res = db.collection(collection).doc(product.id.toString()).set(product); 
             addedProducts.push(product)
 
             console.log(`📦 ${crawlProduct.title} added to Database`)
@@ -41,6 +41,8 @@ exports.setCollection = async (collection, data) => {
             }
         }
 
-        return console.log(await console.log(`\n💾 Database Update Complete! ${Promise.all(addedProducts)} products added. ✔\n`));
+        const output = await Promise.all(addedProducts)
+
+        return console.log(console.log(`\n💾 Database Update Complete! ${output.length} products added. ✔\n`));
 }
 
