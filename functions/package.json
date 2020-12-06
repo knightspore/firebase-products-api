@@ -16,6 +16,7 @@
   "dependencies": {
     "firebase-admin": "^9.4.1",
     "firebase-functions": "^3.11.0",
+    "open-graph-scraper": "^4.7.0",
     "rss-products-parser": "^1.1.1"
   },
   "devDependencies": {
