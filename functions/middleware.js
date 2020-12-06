@@ -1,5 +1,6 @@
 const scraper = require('rss-products-parser')  
 const database = require('./database.js')
+const opengraph = require('./opengraph.js')
 
 // Clean Scrape Results to Create a Simple Product List
 createProductListFrom = (resultsJson) => {
@@ -44,6 +45,11 @@ exports.scrapeToDatabase = async function (urlList, collection) {
     database.setCollection(collection, createProductListFrom(ref))
 }
 
+// Add Images to Database
+exports.getDocumentImage = async (url) => {
+    const imageRef = await opengraph.getImageFor(url);
+    return imageRef
+}
 // Request Logger
 exports.log = (request) => {
     var d = new Date();

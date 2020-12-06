@@ -1,13 +1,14 @@
 const ogs = require('open-graph-scraper')
 
-const options = { url: 'ciaran.co.za/tailwind-css-wordpress-theme-tutorial/'}
+exports.getImageFor = async (url) => {
+    const options = { url: url}
+    const imageUrl = ogs(options)
+                        .then( async (data) => {
+                            const { result } = await data;
+                            return result.ogImage.url;
+                        }).catch(error => {
+                            console.error(error)
+                        })
 
-
-ogs(options)
-  .then((data) => {
-    const { result } = data;
-    console.log('result:', result); // This contains all of the Open Graph results
-    return result;
-  }).catch(error => {
-      console.error(error.ogImage)
-  })
+    return await imageUrl
+}

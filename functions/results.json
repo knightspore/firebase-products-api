@@ -1,0 +1,30 @@
+
+[1m[37m===[39m Serving from '/home/c/Desktop/dev/firebase-products-api'...[22m
+
+[1m[33m⚠ [39m[22m Your requested "node" version "12" doesn't match your global version "15"
+[1m[36mi  functions:[39m[22m Watching "/home/c/Desktop/dev/firebase-products-api/functions" for Cloud Functions...
+[1m[36mi  hosting:[39m[22m Serving hosting files from: [1mfunctions/dist[22m
+[1m[32m✔  hosting:[39m[22m Local server: [4m[1mhttp://localhost:5000[22m[24m
+[1m[33m⚠  functions:[39m[22m The Cloud Firestore emulator is not running, so calls to Firestore will affect production.
+[1m[32m✔  functions[app]:[39m[22m [1mhttp[22m function initialized (http://localhost:5001/products-api-e6dfd/us-central1/app).
+[1m[36mi  functions:[39m[22m Beginning execution of "app"
+[90m> [39m 
+[90m> [39m Re-running Crawl...
+[1m[36mi  functions:[39m[22m Finished "app" in ~1s
+Shutting down...
+[1m[36mi  functions:[39m[22m Stopping Functions Emulator
+
+[1m[37m===[39m Serving from '/home/c/Desktop/dev/firebase-products-api'...[22m
+
+[1m[33m⚠ [39m[22m Your requested "node" version "12" doesn't match your global version "15"
+[1m[36mi  functions:[39m[22m Watching "/home/c/Desktop/dev/firebase-products-api/functions" for Cloud Functions...
+[1m[36mi  hosting:[39m[22m Serving hosting files from: [1mfunctions/dist[22m
+[1m[32m✔  hosting:[39m[22m Local server: [4m[1mhttp://localhost:5000[22m[24m
+[1m[33m⚠  functions:[39m[22m The Cloud Firestore emulator is not running, so calls to Firestore will affect production.
+[1m[32m✔  functions[app]:[39m[22m [1mhttp[22m function initialized (http://localhost:5001/products-api-e6dfd/us-central1/app).
+[1m[36mi  functions:[39m[22m Beginning execution of "app"
+[90m> [39m 
+[90m> [39m Re-running Crawl...
+[1m[36mi  functions:[39m[22m Finished "app" in ~1s
+Shutting down...
+[1m[36mi  functions:[39m[22m Stopping Functions Emulator

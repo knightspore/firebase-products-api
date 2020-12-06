@@ -3,8 +3,8 @@ const express = require('express')
 const app = express()
 var cors = require('cors')
 app.use(cors())
+var path = require('path')
 const middleware = require('./middleware.js')
-var path = require('path');
 
 var fromTheseRssFeeds = [
     'https://marijuanasa.co.za/product-category/marijuana-seeds/feed/',
@@ -42,7 +42,7 @@ app.get('/api/products/:item_id', async (request, response) => {
 app.get('/api/refresh', (request, response) => {
     response.set('Cache-control', 'public, max-age=300, s-maxage=600')
     middleware.scrapeToDatabase(fromTheseRssFeeds, 'products')
-    response.sendStatus(200)    
+    response.sendStatus(200)
 })
 
 // Cloud Function: Serve
