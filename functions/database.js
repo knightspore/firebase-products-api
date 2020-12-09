@@ -47,7 +47,8 @@ exports.setCollection = async (collection, data) => {
                 title: crawlProduct.title,
                 description: crawlProduct.description,
                 link: crawlProduct.link,
-                image: '#'
+                image: '#',
+                ratings: []
             }
 
             const res = db.collection(collection).doc(product.id.toString()).set(product); 
